@@ -1,0 +1,96 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        map<int, int> m;
+        for (int i = 0; i < n; i++) {
+            int complement = target - nums[i];
+            if (m.count(complement))
+                return {m[complement], i};
+            m[nums[i]] = i;
+        }
+        return {};
+    }
+};
+-------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+
+        vector<vector<int>> v;
+
+        for (int i = 0; i < n; i++) {
+            v.push_back({nums[i], i});
+        }
+
+        sort(v.begin(), v.end());
+
+        int l = 0, r = n - 1;
+
+        while (l < r) {
+            int left_element = v[l][0];
+            int right_element = v[r][0];
+
+            int left_index = v[l][1];
+            int right_index = v[r][1];
+
+            int sum = left_element + right_element;
+
+            if (sum < target)
+                l++;
+            else if (sum > target)
+                r--;
+            else
+                return {left_index, right_index};
+        }
+
+        return {};
+    }
+};
+----------------------------------------------------------
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n= nums.size();
+        map<int,int> m;
+        
+        for (int i : nums){
+            m[i]++;
+            if(m[i]>n/2)
+            return i;
+        }
+        return -1;
+        
+    }
+};
+-------------------------------------------------
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        int n = nums.size();
+
+        vector<int> ans;
+
+        int l = 0, r = n - 1;
+
+        while (l <= r) {
+            if (abs(nums[l]) > abs(nums[r])) {
+                ans.push_back(nums[l] * nums[l]);
+                l++;
+            } else {
+                ans.push_back(nums[r] * nums[r]);
+                r--;
+            }
+        }
+
+        reverse(ans.begin(), ans.end());
+
+        return ans;
+    }
+};

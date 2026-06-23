@@ -1,0 +1,40 @@
+class Solution {
+  public:
+    Node *insertAtFront(Node *head, int x) {
+        
+        Node* newNode = new Node(x);
+        newNode -> next =head;
+        return newNode;
+        
+    }
+};
+___________________
+  
+class Solution {
+public:
+    int getCount(Node* head) {
+        int count = 0;
+        
+        while (head != NULL) {
+            count++;
+            head = head->next;
+        }
+        
+        return count;
+    }
+};
+
+-----------------------
+  class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node-> val= node->next->val;
+        node->next= node->next-> next;
+        
+    }
+};
+--------------------------------------
+
+
+
+  

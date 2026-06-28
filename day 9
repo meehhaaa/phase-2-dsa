@@ -1,0 +1,60 @@
+class Solution {
+public:
+    string triangleType(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+
+        if (nums[0] + nums[1] <= nums[2])
+            return "none";
+
+        if (nums[0] == nums[1] && nums[1] == nums[2])
+            return "equilateral";
+
+        if (nums[0] == nums[1] || nums[1] == nums[2])
+            return "isosceles";
+
+        return "scalene";
+    }
+};
+________________________________________
+
+class Solution {
+public:
+    int sumOfMultiples(int n) {
+        int ans= 0;
+        for (int i=1; i<=n ; i++)
+        if (i % 3 ==0 || i % 5 == 0 || i % 7 == 0)
+         ans += i;
+         return ans;
+
+        
+    }
+};
+__________________________________________
+
+class Solution {
+public:
+    int countKeyChanges(string s) {
+        int ans = 0;
+
+        for (int i = 1; i < s.size(); i++) {
+            if (tolower(s[i]) != tolower(s[i - 1]))
+                ans++;
+        }
+
+        return ans;
+    }
+};
+_________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
